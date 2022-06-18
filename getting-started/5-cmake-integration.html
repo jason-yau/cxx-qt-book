@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>用 CMake 构建 - CXX-Qt Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">介绍</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../getting-started/index.html"><strong aria-hidden="true">1.</strong> 入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../getting-started/1-qobjects-in-rust.html"><strong aria-hidden="true">1.1.</strong> Rust 中的 QObjects</a></li><li class="chapter-item expanded "><a href="../getting-started/2-our-first-cxx-qt-module.html"><strong aria-hidden="true">1.2.</strong> 我们第一个 CXX-Qt 模块</a></li><li class="chapter-item expanded "><a href="../getting-started/3-exposing-to-qml.html"><strong aria-hidden="true">1.3.</strong> 导出到 QML</a></li><li class="chapter-item expanded "><a href="../getting-started/4-qml-gui.html"><strong aria-hidden="true">1.4.</strong> 创建 QML GUI</a></li><li class="chapter-item expanded "><a href="../getting-started/5-cmake-integration.html" class="active"><strong aria-hidden="true">1.5.</strong> 用 CMake 构建</a></li></ol></li><li class="chapter-item expanded "><a href="../qobject/index.html"><strong aria-hidden="true">2.</strong> QObject</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../qobject/macro.html"><strong aria-hidden="true">2.1.</strong> 宏</a></li><li class="chapter-item expanded "><a href="../qobject/data_struct.html"><strong aria-hidden="true">2.2.</strong> Data 结构体</a></li><li class="chapter-item expanded "><a href="../qobject/rustobj_struct.html"><strong aria-hidden="true">2.3.</strong> RustObj 结构体</a></li><li class="chapter-item expanded "><a href="../qobject/cpp_object.html"><strong aria-hidden="true">2.4.</strong> Cpp 对象</a></li><li class="chapter-item expanded "><a href="../qobject/signals_enum.html"><strong aria-hidden="true">2.5.</strong> Signals 枚举</a></li><li class="chapter-item expanded "><a href="../qobject/handlers.html"><strong aria-hidden="true">2.6.</strong> Handlers</a></li></ol></li><li class="chapter-item expanded "><a href="../concepts/index.html"><strong aria-hidden="true">3.</strong> 概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../concepts/bridge.html"><strong aria-hidden="true">3.1.</strong> Bridge</a></li><li class="chapter-item expanded "><a href="../concepts/qt.html"><strong aria-hidden="true">3.2.</strong> Qt</a></li><li class="chapter-item expanded "><a href="../concepts/types.html"><strong aria-hidden="true">3.3.</strong> 类型</a></li><li class="chapter-item expanded "><a href="../concepts/build_rs_and_cargo.html"><strong aria-hidden="true">3.4.</strong> Build.rs 和 Cargo.toml</a></li><li class="chapter-item expanded "><a href="../concepts/cmake.html"><strong aria-hidden="true">3.5.</strong> CMake 集成</a></li><li class="chapter-item expanded "><a href="../concepts/register_types.html"><strong aria-hidden="true">3.6.</strong> 注册类型</a></li><li class="chapter-item expanded "><a href="../concepts/qqmlextensionplugin.html"><strong aria-hidden="true">3.7.</strong> QQmlExtensionPlugin</a></li><li class="chapter-item expanded "><a href="../concepts/threading.html"><strong aria-hidden="true">3.8.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../concepts/nested_objects.html"><strong aria-hidden="true">3.9.</strong> 嵌套对象</a></li></ol></li><li class="chapter-item expanded "><a href="../internal/index.html"><strong aria-hidden="true">4.</strong> 内部剖析</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../internal/build.html"><strong aria-hidden="true">4.1.</strong> 构建</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CXX-Qt Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+SPDX-FileCopyrightText: 2022 Klarälvdalens Datakonsult AB, a KDAB Group company <info@kdab.com>
+SPDX-FileContributor: Leon Matthes <leon.matthes@kdab.com>
+
+SPDX-License-Identifier: MIT OR Apache-2.0
+-->
+<h1 id="使用-cmake-构建"><a class="header" href="#使用-cmake-构建">使用 CMake 构建</a></h1>
+<pre><code class="language-diff ignore">- 免责声明：CXX-Qt 的 CMake 集成仍处于开发中。
+- 目前的状态离最佳状态还很远，未来可能会有很多改善
+- 所以不要因为这一章的内容而气馁。
+- 欢迎奉献。
+</code></pre>
+<p>在开始使用 CMake 构建 Qt 之前，我们首先需要为 Cargo 构建做好准备。如果您使用 <code>cargo new --lib</code> 命令生成了项目，您 <code>Cargo.toml</code> 文件可能看起来像这样：</p>
+<pre><code class="language-toml ignore">[package]
+name = &quot;qml-minimal&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
+
+[dependencies]
+</code></pre>
+<p>我们逐步来：</p>
+<ul>
+<li>指示 cargo 创建一个具有定义名称（“rust”）的静态库，供 CMake 链接。</li>
+<li>添加 <code>cxx</code>, <code>cxx-qt</code>, 以及 <code>cxx-qt-lib</code> 依赖项。</li>
+<li>添加 <code>clang-format</code> 和 <code>cxx-qt-build</code> 作为构建依赖项。</li>
+</ul>
+<p>最后，您的 <code>Cargo.toml</code> 应该看起来与此类似（请注意，path不需要依赖项）：</p>
+<pre><code class="language-toml ignore">[package]
+name = &quot;qml-minimal&quot;
+version = &quot;0.1.0&quot;
+authors = [
+  &quot;Andrew Hayzen &lt;andrew.hayzen@kdab.com&gt;&quot;,
+  &quot;Gerhard de Clercq &lt;gerhard.declercq@kdab.com&gt;&quot;,
+  &quot;Leon Matthes &lt;leon.matthes@kdab.com&gt;&quot;
+]
+edition = &quot;2018&quot;
+license = &quot;MIT OR Apache-2.0&quot;
+
+# This will instruct Cargo to create a static
+# lib named &quot;rust&quot; which CMake can link against
+[lib]
+name = &quot;rust&quot;
+crate-type = [&quot;staticlib&quot;]
+
+[dependencies]
+cxx = &quot;1.0&quot;
+cxx-qt = { path = &quot;../../cxx-qt&quot; }
+cxx-qt-lib = { path = &quot;../../cxx-qt-lib&quot; }
+
+# cxx-qt needs to be able to generate C++ code at
+# compile time, which is what cxx-qt-build is needed for.
+# cxx-qt uses clang-format, if available, to format all
+# C++ code in a consistent manner.
+[build-dependencies]
+clang-format = &quot;0.1&quot;
+cxx-qt-build = { path = &quot;../../cxx-qt-build&quot; }
+
+</code></pre>
+<p>然后，我们还需要在 <code>Cargo.toml</code> 旁边添加一个名为 <code>build.rs</code> 文件：</p>
+<pre><code class="language-rust ignore">use clang_format::ClangFormatStyle;
+use cxx_qt_build::CxxQtBuilder;
+
+fn main() {
+    CxxQtBuilder::new()
+        .cpp_format(ClangFormatStyle::Mozilla)
+        .file(&quot;src/lib.rs&quot;)
+        .build();
+}
+</code></pre>
+<p>这就是是在编译时为我们 <code>MyObject</code> 类生成的 C++ 代码。它将输出我们之前在 <code>main.cpp</code> 中包含的 <code>cxx-qt-gen/include/my_object.h</code> 文件。</p>
+<p>请注意，所有使用 <code>#[make_qobject]</code> 宏的 Rust 源文件都需要包含在此脚本中！在我们的例子中，这需要包含 <code>src/lib.rs</code> 文件。</p>
+<p>然后我们编写 <code>CMakeLists.txt</code> 文件：</p>
+<pre><code class="language-cmake ignore">cmake_minimum_required(VERSION 3.16)
+
+project(example_qml_minimal)
+set(APP_NAME ${PROJECT_NAME})
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Gui Qml QuickControls2 QmlImportScanner REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui Qml QuickControls2 QmlImportScanner REQUIRED)
+
+include(CxxQt)
+
+# Generate C++ code from Rust using Cargo in the current folder
+cxx_qt_generate_cpp(GEN_SOURCES)
+
+# Define our sources
+set(
+    CPP_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+)
+
+set(
+    RESOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/qml.qrc
+)
+
+# Define our executable with our C++ source, generated sources, and QML resource files
+add_executable(${APP_NAME} &quot;${CPP_SOURCES}&quot; &quot;${GEN_SOURCES}&quot; &quot;${RESOURCES}&quot;)
+
+# Include generated sources
+cxx_qt_include(${APP_NAME})
+
+# Link to generated rust library
+cxx_qt_link_rustlib(${APP_NAME})
+
+# Link to Qt in the normal way
+target_link_libraries(${APP_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Gui
+    Qt${QT_VERSION_MAJOR}::Qml
+    Qt${QT_VERSION_MAJOR}::QuickControls2
+)
+qt_import_qml_plugins(${APP_NAME})
+</code></pre>
+<p>这看起来很多，但实际上它只是一个用于构建 Qt 应用程序的相当标准的 CMake 文件。</p>
+<p>这里的区别是：</p>
+<pre><code class="language-cmake ignore">include(CxxQt)
+
+# Generate C++ code from Rust using Cargo in the current folder
+cxx_qt_generate_cpp(GEN_SOURCES)
+# Include generated sources
+cxx_qt_include(${APP_NAME})
+
+# Link to generated rust library
+cxx_qt_link_rustlib(${APP_NAME})
+</code></pre>
+<p>它将执行代码生成，并将其包含到 C++ 构建中。</p>
+<p>这里要注意的重要一点是，CMake 必须能够解析 <code>include(CxxQt)</code>. 为此，您需要克隆 <a href="https://github.com/KDAB/cxx-qt/">CXX-Qt 代码库</a>，并将 <code>CxxQt.cmake</code> 文件添加到 <code>CMAKE_MODULE_PATHCMake</code> 变量中。实现此目的的一种简单方法是使用 CMake 的 <code>-D</code> 选项。有关一些替代方案，请参阅 <a href="../concepts/cmake.html">CMake 概念章节</a>。</p>
+<p>因此构建我们的项目可以这样完成：</p>
+<pre><code class="language-shell">$ mkdir build &amp;&amp; cd build
+$ cmake -DCMAKE_MODULE_PATH=&quot;&lt;path-to-cxx-qt-repo&gt;/cmake&quot; ..
+$ cmake --build .
+</code></pre>
+<p>如果由于某种原因失败，请查看 <a href="https://github.com/KDAB/cxx-qt/tree/main/examples/qml_minimal"><code>examples/qml_minimal</code></a>文件夹，里面包含完整示例代码。</p>
+<p>现在可以配置和编译我们的项目。如果这成功了，你现在可以运行我们的小项目了。</p>
+<pre><code class="language-shell">$ ./qml_minimal
+</code></pre>
+<p>您现在应该看到显示我们 <code>MyObject</code> 状态的两个 Label，以及调用我们的两个 Rust 函数的两个 Button。</p>
+<h2 id="成功---"><a class="header" href="#成功---">成功   🥳</a></h2>
+<p>如需进一步阅读，您可以查看 <a href="../qobject/index.html">QObject 章节</a>，该章节详细介绍了 CXX-Qt 向 QObject 子类公开的所有属性。也可以看<a href="../concepts/index.html">概念章节</a>，它解释了 CXX-Qt 的底层概念。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../getting-started/4-qml-gui.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../qobject/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../getting-started/4-qml-gui.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../qobject/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
