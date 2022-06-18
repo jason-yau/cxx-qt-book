@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2021 Klarälvdalens Datakonsult AB, a KDAB Group company <info@kdab.com>
+# SPDX-FileContributor: Andrew Hayzen <andrew.hayzen@kdab.com>
+#
+# SPDX-License-Identifier: MIT OR Apache-2.0
+# from 
+
+[book]
+authors = ["Jason Yau <jason_yau@qq.com>"]
+language = "zh"
+multilingual = false
+src = "src"
+title = "CXX-Qt 文档"
+
+[output.html]
+
+[output.linkcheck]
